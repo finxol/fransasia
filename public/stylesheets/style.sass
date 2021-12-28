@@ -1,0 +1,49 @@
+@import "../fonts/lato/lato.css"
+
+body
+    margin: 0
+    padding: 0
+    font: 14px "Lato", "Lucida Grande", Helvetica, Arial, sans-serif
+    background-color: #fd5e0f
+    color: #ffffff
+
+    header
+        position: fixed
+        top: 0
+        right: 0
+        left: 0
+        height: 5rem
+        padding: .7rem 1rem
+        display: flex
+        justify-content: space-between
+        align-items: center
+        background-color: #ffffff
+
+        img
+            width: 10rem
+
+        nav
+            a
+                margin: 0 .6rem
+                display: inline-block
+                text-decoration: none
+                font-size: 1.1rem
+                font-weight: bold
+                color: #fd5e0f
+                background-image: linear-gradient(to right, #fd5e0f, #fd5e0f)
+                background-position: bottom center
+                background-repeat: no-repeat
+                background-size: 0 1px
+                transition: background-size .3s ease
+
+                &:hover
+                    background-size: 90% 1px
+
+                &.active
+                    background-image: linear-gradient(to right, #fd5e0f, #fd5e0f)
+                    background-position: bottom center
+                    background-repeat: no-repeat
+                    background-size: 95% 2px
+
+    div#body
+        margin: 7.4rem 1rem .5rem
