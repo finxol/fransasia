@@ -1,5 +1,6 @@
 const createError = require('http-errors');
 const express = require('express');
+const hbs = require('express-hbs');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
@@ -8,10 +9,20 @@ const indexRouter = require('./routes/index');
 
 const app = express();
 
+const relative = p => path.join(__dirname, p);
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+const viewsDir = relative('views');
+
+app.use(express.static(relative('public')));
+
+// Hook in express-hbs and tell it where known directories reside
+app.engine('hbs', hbs.express4({
+  layoutsDir: relative('views/layout'),
+  defaultLayout: relative('views/layout.hbs')
+}));
 app.set('view engine', 'hbs');
+app.set('views', viewsDir);
 
 app.use(logger('dev'));
 app.use(express.json());
