@@ -1,0 +1,63 @@
+@import "../fonts/lato/lato.css";
+@import "../fonts/orkney/orkney.css";
+body {
+  margin: 0;
+  padding: 0;
+  font: 14px "OrkneyRegular", "Lato", "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #ffffff;
+  color: #0f0f0f;
+}
+body header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 5rem;
+  padding: 0.7rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fd5e0f;
+}
+body header img {
+  width: 10rem;
+}
+body header nav a {
+  margin: 0 0.6rem;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #ffffff;
+  background-image: linear-gradient(to right, #ffffff, #ffffff);
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: 0 1px;
+  transition: background-size 0.3s ease;
+}
+body header nav a:hover {
+  background-size: 90% 1px;
+}
+body header nav a.active {
+  background-image: linear-gradient(to right, #ffffff, #ffffff);
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: 95% 2px;
+}
+body div#body {
+  margin: 8.4rem 1rem 0.5rem;
+  text-align: center;
+}
+
+body h1 {
+  padding-top: 2rem;
+  font-size: 3rem;
+}
+body article {
+  margin: 5rem 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+/*# sourceMappingURL=index.css.map */
