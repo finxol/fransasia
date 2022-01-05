@@ -1,3 +1,5 @@
+@charset "UTF-8";
+@import "reset.css";
 @import "../fonts/lato/lato.css";
 @import "../fonts/orkney/orkney.css";
 body {
@@ -5,22 +7,52 @@ body {
   padding: 0;
   font: 14px "OrkneyRegular", "Lato", "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: #ffffff;
-  color: #0f0f0f;
+  color: #2b0e00;
+}
+body a {
+  background-image: linear-gradient(to right, #0f0f0f5e, #0f0f0f5e);
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  transition: background-size 0.3s ease;
+  background-size: 100% 1px;
+}
+body a:hover {
+  background-size: 100% 2px;
 }
 body header {
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
+  z-index: 10;
   height: 5rem;
   padding: 0.7rem 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #fd5e0f;
+  background-color: #ffffff;
 }
 body header img {
   width: 10rem;
+  z-index: 11;
+}
+body header nav {
+  background-color: #ffffff;
+}
+@media screen and (max-width: 930px) {
+  body header nav.show {
+    position: absolute;
+    top: 6.4rem;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9;
+    height: calc(100vh - 6.4rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
 }
 body header nav a {
   margin: 0 0.6rem;
@@ -28,8 +60,8 @@ body header nav a {
   text-decoration: none;
   font-size: 1.1rem;
   font-weight: bold;
-  color: #ffffff;
-  background-image: linear-gradient(to right, #ffffff, #ffffff);
+  color: #fd5e0f;
+  background-image: linear-gradient(to right, #fd5e0f, #fd5e0f);
   background-position: bottom center;
   background-repeat: no-repeat;
   background-size: 0 1px;
@@ -39,25 +71,84 @@ body header nav a:hover {
   background-size: 90% 1px;
 }
 body header nav a.active {
-  background-image: linear-gradient(to right, #ffffff, #ffffff);
+  background-image: linear-gradient(to right, #fd5e0f, #fd5e0f);
   background-position: bottom center;
   background-repeat: no-repeat;
   background-size: 95% 2px;
 }
 body div#body {
-  margin: 8.4rem 1rem 0.5rem;
+  margin: 5rem 0 0;
   text-align: center;
 }
-
-body h1 {
-  padding-top: 2rem;
-  font-size: 3rem;
+body footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 3rem 5rem 2rem;
+  color: rgba(43, 14, 0, 0.7);
 }
-body article {
-  margin: 5rem 2rem;
+body footer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+div#body {
+  height: calc(100vh - 6.4rem);
+  background-color: #ffffff;
+}
+div#body h1 {
+  margin: 0;
+  height: calc(50vh - (6.4rem/2));
+  line-height: calc(50vh - (6.4rem/2));
+  background-image: url("/images/macau-wallpaper.jpg");
+  /*background-image: image-set("/images/china_door_blur.webp" type("image/webp"), "/images/china_door_blur.jpg" type("image/jpg"))*/
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-size: 3rem;
+  color: #ffffff;
+  text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
+}
+div#body h1::after {
+  content: "better image?";
+  position: absolute;
+  top: 7rem;
+  left: 0.3rem;
+  line-height: initial;
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-shadow: none;
+}
+div#body article {
+  padding: 0;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  align-items: center;
+  height: calc((100vh - 6.4rem) /2);
+}
+div#body article section {
+  width: 35%;
+  background-color: #ffffff;
+}
+div#body article section * {
+  transition: 0.5s;
+}
+div#body article section h2::after {
+  content: "⊕";
+  display: block;
+  transition: 0.3s;
+}
+div#body article section p {
+  margin-top: -1.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+}
+div#body article section:hover h2::after {
+  opacity: 0;
+}
+div#body article section:hover p {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /*# sourceMappingURL=index.css.map */
