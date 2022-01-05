@@ -150,5 +150,11 @@ div#body article section:hover p {
   opacity: 1;
   transform: translateY(0);
 }
+div#body article .separator {
+  height: 60%;
+  width: 1px;
+  border-radius: 0.1rem;
+  background-color: rgba(43, 14, 0, 0.19);
+}
 
 /*# sourceMappingURL=index.css.map */
