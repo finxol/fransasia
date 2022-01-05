@@ -1,0 +1,14 @@
+{
+    "name": "fransasia",
+    "short_name": "fransasia",
+    "icons": [
+        {
+            "src": "/images/favicon/android-chrome-48x48.png",
+            "sizes": "48x48",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#fd5e0f",
+    "background_color": "#ffffff",
+    "display": "standalone"
+}
