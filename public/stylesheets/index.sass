@@ -1,68 +1,117 @@
 @import "style"
 
 div#body
-    height: calc(100vh - 6.4rem)
     background-color: $bg-color
 
-    h1
-        margin: 0
-        $height: calc(50vh - (6.4rem/2))
-        height: $height
-        line-height: $height
+    div#welcome
+        height: calc(100vh - 5rem)
 
-        background-image: url("/images/macau-wallpaper.jpg")
-        /*background-image: image-set("/images/china_door_blur.webp" type("image/webp"), "/images/china_door_blur.jpg" type("image/jpg"))*/
-        background-repeat: no-repeat
-        background-size: cover
-        font-size: 3rem
-        color: #ffffff
-        text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px //text outline
+        h1
+            margin: 0
+            $height: calc(50vh - (6.4rem/2))
+            height: $height
+            line-height: $height
 
-        &::after
-            content: "better image?"
-            position: absolute
-            top: 7rem
-            left: .3rem
-            line-height: initial
-            font-size: 1.5rem
-            color: rgba(255, 255, 255, 0.6)
-            text-shadow: none
+            background-image: url("/images/macau-wallpaper.jpg")
+            /*background-image: image-set("/images/china_door_blur.webp" type("image/webp"), "/images/china_door_blur.jpg" type("image/jpg"))*/
+            background-repeat: no-repeat
+            background-size: cover
+            font-size: 3rem
+            color: #ffffff
+            text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px //text outline
 
-    article
-        padding: 0
-        display: flex
-        flex-direction: row
-        justify-content: space-evenly
-        align-items: center
-        height: $half-vh
+            &::after
+                content: "better image?"
+                position: absolute
+                top: 7rem
+                left: .3rem
+                line-height: initial
+                font-size: 1.5rem
+                color: rgba(255, 255, 255, 0.6)
+                text-shadow: none
 
-        section
-            width: 35%
-            background-color: $bg-color
+        article
+            padding: 0
+            display: flex
+            flex-direction: row
+            justify-content: space-evenly
+            align-items: center
+            height: $half-vh
 
-            *
-                transition: .5s
+            section
+                width: 35%
+                background-color: $bg-color
 
-            h2::after
-                content: "⊕"
-                display: block
-                transition: .3s
+                *
+                    transition: .5s
 
-            p
-                margin-top: -1.5rem
-                opacity: 0
-                transform: translateY(20px)
-
-            &:hover
                 h2::after
-                    opacity: 0
+                    content: "⊕"
+                    display: block
+                    transition: .3s
 
                 p
-                    opacity: 1
-                    transform: translateY(0)
+                    margin-top: -1.5rem
+                    opacity: 0
+                    transform: translateY(20px)
 
-        .separator
-            height: 60%
-            width: 1px
-            border-radius: 0.1rem
-            background-color: rgba(43, 14, 0, 0.19)
+                &:hover
+                    h2::after
+                        opacity: 0
+
+                    p
+                        opacity: 1
+                        transform: translateY(0)
+
+    form#contact
+        h2
+            margin: 0 auto 2rem
+
+        section
+            margin: 1rem auto
+            width: 65%
+            padding: 1rem 1.5rem
+            border-radius: .3rem
+            background-color: rgba($orange, .1)
+            background-image: url("/images/circle-scatter-bg.svg")
+            background-size: cover
+
+            label
+                margin: .2rem 0 .7rem
+                display: flex
+                justify-content: space-between
+                align-items: center
+                width: 100%
+                text-align: left
+
+                & > *
+                    margin: 0 .5rem
+                    width: 80%
+
+            input,
+            textarea
+                padding: .3rem .6rem
+                border: 1px solid rgba($black, .8)
+                border-radius: .2rem
+                font-size: .9rem
+                background-color: lighten($orange, 34.9%)
+                resize: vertical
+
+                &[type='submit']
+                    width: 30%
+                    margin: 1rem auto 0
+
+            textarea
+                margin-top: 2rem
+                min-height: 10rem
+
+            div
+                display: flex
+                flex-direction: row
+                justify-content: space-between
+
+                input
+                    width: 49%
+
+    p
+        margin: 2rem 0 0
