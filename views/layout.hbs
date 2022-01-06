@@ -48,13 +48,26 @@
             {{{body}}}
         </div>
 
+        <div class="separator horizontal"></div>
+
         <footer>
             <p>
                 &copy; {{@year}} Fransasia
             </p>
             <div>
-                <a href="/contact">Contact</a>
+                <a href="/#contact">Contact</a>
             </div>
         </footer>
     </body>
+
+<script>
+    // When the user scrolls down 50px from the top of the document, resize the header's font size
+    window.onscroll = () => {
+        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+            document.getElementsByTagName("header")[0].classList.add('scroll');
+        } else {
+            document.getElementsByTagName("header")[0].classList.remove('scroll');
+        }
+    };
+</script>
 </html>
