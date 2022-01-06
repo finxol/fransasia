@@ -127,7 +127,7 @@ div#body div#welcome h1 {
   height: calc(50vh - (6.4rem/2));
   line-height: calc(50vh - (6.4rem/2));
   background-image: url("/images/macau-wallpaper.jpg");
-  /*background-image: image-set("/images/china_door_blur.webp" type("image/webp"), "/images/china_door_blur.jpg" type("image/jpg"))*/
+  background-image: image-set("/images/macau-wallpaper.webp" type("image/webp"), "/images/macau-wallpaper.jpg" type("image/jpg"));
   background-repeat: no-repeat;
   background-size: cover;
   font-size: 3rem;
