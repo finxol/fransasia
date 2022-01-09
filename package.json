@@ -2,10 +2,11 @@
     "name": "fransasia",
     "version": "0.0.1",
     "private": true,
+    "type": "module",
     "scripts": {
-        "start": "node ./bin/www",
-        "serve": "DEBUG=fransasia:* node ./bin/www",
-        "launch": "cd /server/fransasia && forever start -o out.log -e err.log bin/www"
+        "start": "NODE_ENV=production node bin/www.js",
+        "serve": "DEBUG=fransasia:* node bin/www.js",
+        "launch": "cd /server/fransasia && NODE_ENV=production forever start -o out.log -e err.log bin/www.js"
     },
     "dependencies": {
         "cookie-parser": "~1.4.4",
