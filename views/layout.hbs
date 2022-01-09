@@ -29,45 +29,127 @@
         <meta name="twitter:card" content="summary_large_image">
         <meta property="og:url" content="https://fransasia.ozna.me">
         <link rel="canonical" href="https://fransasia.ozna.me/">
+
+        <link rel="preload" as="image" href="/images/circle-scatter-bg.svg">
+        <link rel="preload" as="font" href="/fonts/orkney/orkneyregular-webfont.woff2">
+        <script src="/js/instantpage.min.js" type="module" integrity="sha384-Lg6n2o3looAAQ44aOh9pH0OcWyhgqI69r2yjPIc+TvXyvfgA+z1k+hf2G3reakUO"></script>
     </head>
 
     <body>
         <header>
             <a href="/"><img src="/images/logo.webp" alt="Fransasia"></a>
             <nav>
-                <a href="#" class="active">Mission & Service</a>
-                <a href="#">Partner & Deal</a>
-                <a href="#">Manage Deal</a>
-                <a href="#">Convergence</a>
-                <a href="#">Green</a>
-                <a href="#">Macau</a>
+                <a href="#" {{#isCurrentPage title "index"}}class="active"{{/isCurrentPage}}>Mission & Service</a>
+                <a href="#" {{#isCurrentPage title "partner-deal"}}class="active"{{/isCurrentPage}}>Partner & Deal</a>
+                <a href="#" {{#isCurrentPage title "manage-deal"}}class="active"{{/isCurrentPage}}>Manage Deal</a>
+                <a href="#" {{#isCurrentPage title "convergence"}}class="active"{{/isCurrentPage}}>Convergence</a>
+                <a href="#" {{#isCurrentPage title "green"}}class="active"{{/isCurrentPage}}>Green</a>
+                <a href="#" {{#isCurrentPage title "macau"}}class="active"{{/isCurrentPage}}>Macau</a>
             </nav>
+            {{#if mobile}}
+                <button id="show-menu">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </button>
+            {{/if}}
         </header>
 
         <div id="body">
             {{{body}}}
         </div>
 
-        <div class="separator horizontal"></div>
+        <button class="contact">
+            <img src="/images/chat.svg" alt="contact" width="3rem">
+        </button>
+
+        <form class="contact">
+            <h2>Express your needs</h2>
+            <div>
+                <aside>
+                    <img src="/images/conversation.svg">
+                </aside>
+                <section>
+                    <div>
+                        <label for="first-name">
+                            Full Name
+                            <div>
+                                <input type="text" id="first-name" name="first-name" placeholder="John" required>
+                                <input type="text" id="last-name" name="last-name" placeholder="Doe" required>
+                            </div>
+                        </label>
+                    </div>
+                    <label for="email">
+                        Email
+                        <input type="email" id="email" name="email" placeholder="johndoe@example.com" required>
+                    </label>
+                    <label for="message">
+                        What are your needs?
+                        <textarea id="message" name="message" placeholder="We would need to..." required></textarea>
+                    </label>
+                    <input type="submit" value="Send">
+                </section>
+            </div>
+        </form>
 
         <footer>
             <p>
-                &copy; Fransasia 2022
+                &copy; Fransasia {{year}}.
+                Icons and illustrations by <a href="https://icons8.com" target="_blank" rel="noreferrer noopener">Icons8</a>
             </p>
             <div>
-                <a href="/#contact">Contact</a>
+                <a href="/about">About us</a>
             </div>
         </footer>
     </body>
 
-<script>
+<script type="module">
     // When the user scrolls down 50px from the top of the document, resize the header's font size
-    window.onscroll = () => {
-        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-            document.getElementsByTagName("header")[0].classList.add('scroll');
-        } else {
-            document.getElementsByTagName("header")[0].classList.remove('scroll');
+    if (!window.matchMedia("screen and (max-width: 930px)").matches) {
+        window.onscroll = () => {
+            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                document.getElementsByTagName("header")[0].classList.add('scroll');
+            } else {
+                document.getElementsByTagName("header")[0].classList.remove('scroll');
+            }
+        };
+    } else {
+        // show menu on click
+        let menu = document.querySelector("header button#show-menu");
+        menu.onclick = () => {
+            menu.classList.toggle("change");
+
+            let nav = document.querySelector("header nav");
+            nav.classList.toggle("show");
+        };
+    }
+
+    // Show contact form
+    let formButton = document.querySelector("button.contact");
+    let form = document.querySelector("form.contact");
+    formButton.addEventListener('click', function formClick() {
+        form.classList.toggle("show");
+        document.body.classList.toggle("stopScroll");
+
+        if (document.body.classList.contains("stopScroll")) {
+            setTimeout(() => {
+                document.addEventListener("click", function fn(evt) {
+                    let targetElement = evt.target; // clicked element
+                    do {
+                        if (targetElement === form) {
+                            // click inside
+                            return;
+                        }
+                        // Go up the DOM
+                        targetElement = targetElement.parentNode;
+                    } while (targetElement);
+
+                    // click outside.
+                    document.removeEventListener('click', fn)
+                    formClick()
+                });
+            }, 20);
         }
-    };
+    });
 </script>
 </html>
