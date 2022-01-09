@@ -4,9 +4,10 @@
  * Module dependencies.
  */
 
-const app = require('../app');
-const debug = require('debug')('fransasia:server');
-const http = require('http');
+import app from '../app.js';
+import http from 'http';
+import Debug from "debug";
+const debug = Debug("fransasia:server");
 
 /**
  * Get port from environment and store in Express.
