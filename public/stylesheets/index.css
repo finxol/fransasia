@@ -9,6 +9,15 @@ body {
   background-color: #f4f4f4;
   color: #160700;
 }
+body.stopScroll {
+  height: 100vh;
+  overflow-y: hidden;
+  padding-right: 15px;
+  pointer-events: none;
+}
+body *::selection {
+  background-color: rgba(255, 131, 73, 0.4);
+}
 body a {
   background-image: linear-gradient(to right, #0f0f0f5e, #0f0f0f5e);
   background-position: bottom left;
@@ -20,7 +29,7 @@ body a:hover {
   background-size: 100% 2px;
 }
 body header {
-  position: fixed;
+  position: sticky;
   top: 0;
   right: 0;
   left: 0;
@@ -49,20 +58,26 @@ body header img {
 }
 body header nav {
   background-color: #ffffff;
+  transition: 0.5s ease;
 }
 @media screen and (max-width: 930px) {
-  body header nav.show {
+  body header nav {
     position: absolute;
-    top: 6.4rem;
+    left: 105vw;
+    top: 5rem;
     right: 0;
     bottom: 0;
-    left: 0;
     z-index: 9;
-    height: calc(100vh - 6.4rem);
+    width: 50vw;
+    height: calc(100vh - 5rem);
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+  }
+  body header nav.show {
+    left: 0;
+    width: 100vw;
   }
 }
 body header nav a {
@@ -87,8 +102,33 @@ body header nav a.active {
   background-repeat: no-repeat;
   background-size: 95% 2px;
 }
+body header button#show-menu {
+  display: inline-block;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+body header button#show-menu div.bar1, body header button#show-menu div.bar2, body header button#show-menu div.bar3 {
+  width: 35px;
+  height: 3px;
+  background-color: #ff8349;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+body header button#show-menu.change div.bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+  transform: rotate(-45deg) translate(-7px, 7px);
+}
+body header button#show-menu.change div.bar2 {
+  opacity: 0;
+}
+body header button#show-menu.change div.bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-6px, -6px);
+}
 body div#body {
-  margin: 5rem 0 0;
+  margin: 0;
+  min-height: calc(100vh - 5rem - 8rem);
   text-align: center;
 }
 body .separator {
@@ -99,33 +139,145 @@ body .separator.vertical {
   height: 60%;
   width: 1px;
 }
-body .separator.horizontal {
-  margin: 4rem 5rem 1rem;
-  height: 1px;
-  width: auto;
+body button.contact {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  padding: 0.6rem 0.5rem;
+  background-color: #ff8349;
+  border: none;
+  border-radius: 0.7rem;
+  box-shadow: 0 0 5px rgba(22, 7, 0, 0.4);
+  cursor: pointer;
+  animation: 0.8s ease-in-out 1 translate;
+}
+@keyframes translate {
+  0%, 60% {
+    right: -4rem;
+    opacity: 0;
+  }
+  100% {
+    right: 1rem;
+    opacity: 1;
+  }
+}
+body button.contact img {
+  width: 2.5rem;
+  filter: invert(1);
+}
+body form.contact {
+  display: none;
+  z-index: 11;
+  padding-top: 1rem;
+  border-radius: 1rem;
+  background-color: rgba(255, 131, 73, 0.1);
+  background-image: url("/images/circle-scatter-bg.svg");
+  background-size: cover;
+  box-shadow: 0 0 100vw 100vw rgba(22, 7, 0, 0.6);
+  pointer-events: all;
+  animation: 0.3s ease-in-out appear;
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+body form.contact.show {
+  display: block;
+  position: fixed;
+  top: 20vh;
+  right: 10vw;
+  bottom: 20vh;
+  left: 10vw;
+}
+body form.contact h2 {
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+body form.contact div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+body form.contact div aside {
+  width: 35%;
+}
+body form.contact div section {
+  width: 65%;
+  padding: 1rem 1.5rem;
+  border-radius: 0.3rem;
+}
+body form.contact div section label {
+  margin: 0.2rem 0 0.7rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+}
+body form.contact div section label > * {
+  margin: 0 0.5rem;
+  width: 80%;
+}
+body form.contact div section input,
+body form.contact div section textarea {
+  padding: 0.3rem 0.6rem;
+  border: 1px solid rgba(22, 7, 0, 0.8);
+  border-radius: 0.2rem;
+  font-size: 0.9rem;
+  background-color: #fffcfb;
+  resize: vertical;
+}
+body form.contact div section input[type=submit],
+body form.contact div section textarea[type=submit] {
+  width: 30%;
+  margin: 1rem 35% 0;
+  cursor: pointer;
+}
+body form.contact div section textarea {
+  margin-top: 2rem;
+  min-height: 10rem;
+  max-height: 25vh;
+}
+body form.contact div section div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+body form.contact div section div input {
+  width: 49%;
 }
 body footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 0 5rem 2rem;
+  margin: 3rem 5rem 2rem;
+  height: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(43, 14, 0, 0.19);
   color: rgba(22, 7, 0, 0.7);
+}
+@media screen and (max-width: 930px) {
+  body footer {
+    padding: 0 1rem 2rem;
+  }
 }
 body footer a {
   color: inherit;
   text-decoration: none;
 }
 
-div#body {
-  background-color: #f4f4f4;
-}
 div#body div#welcome {
   height: calc(100vh - 5rem);
 }
 div#body div#welcome h1 {
   margin: 0;
-  height: calc(50vh - (6.4rem/2));
-  line-height: calc(50vh - (6.4rem/2));
+  height: calc(50vh - (5rem/2));
+  line-height: calc(50vh - (5rem/2));
   background-image: url("/images/macau-wallpaper.jpg");
   background-image: image-set("/images/macau-wallpaper.webp" type("image/webp"), "/images/macau-wallpaper.jpg" type("image/jpg"));
   background-repeat: no-repeat;
@@ -134,10 +286,17 @@ div#body div#welcome h1 {
   color: #ffffff;
   text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
 }
+@media screen and (max-width: 930px) {
+  div#body div#welcome h1 {
+    padding-top: 1rem;
+    line-height: 10rem;
+    font-size: 2.5rem;
+  }
+}
 div#body div#welcome h1::after {
   content: "better image?";
   position: absolute;
-  top: 7rem;
+  top: 6rem;
   left: 0.3rem;
   line-height: initial;
   font-size: 1.5rem;
@@ -150,11 +309,12 @@ div#body div#welcome article {
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  height: calc((100vh - 6.4rem) /2);
+  height: calc((100vh - 5rem) /2);
 }
 div#body div#welcome article section {
-  width: 35%;
+  width: 45%;
   background-color: #f4f4f4;
+  font-size: 85%;
 }
 div#body div#welcome article section * {
   transition: 0.5s;
@@ -175,56 +335,6 @@ div#body div#welcome article section:hover h2::after {
 div#body div#welcome article section:hover p {
   opacity: 1;
   transform: translateY(0);
-}
-div#body form#contact h2 {
-  margin: 0 auto 2rem;
-}
-div#body form#contact section {
-  margin: 1rem auto;
-  width: 65%;
-  padding: 1rem 1.5rem;
-  border-radius: 0.3rem;
-  background-color: rgba(255, 131, 73, 0.1);
-  background-image: url("/images/circle-scatter-bg.svg");
-  background-size: cover;
-}
-div#body form#contact section label {
-  margin: 0.2rem 0 0.7rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  text-align: left;
-}
-div#body form#contact section label > * {
-  margin: 0 0.5rem;
-  width: 80%;
-}
-div#body form#contact section input,
-div#body form#contact section textarea {
-  padding: 0.3rem 0.6rem;
-  border: 1px solid rgba(22, 7, 0, 0.8);
-  border-radius: 0.2rem;
-  font-size: 0.9rem;
-  background-color: #fffcfb;
-  resize: vertical;
-}
-div#body form#contact section input[type=submit],
-div#body form#contact section textarea[type=submit] {
-  width: 30%;
-  margin: 1rem auto 0;
-}
-div#body form#contact section textarea {
-  margin-top: 2rem;
-  min-height: 10rem;
-}
-div#body form#contact section div {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-div#body form#contact section div input {
-  width: 49%;
 }
 div#body p {
   margin: 2rem 0 0;
