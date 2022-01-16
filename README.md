@@ -1,6 +1,6 @@
 # fransasia
 Source code for the fransasia website
 
-Available on [fransasia.ozna.me](https://fransasia.ozna.me)
+Developpement version available on [pi.ozna.me](https://pi.ozna.me)
 
 **All rights reserved**
