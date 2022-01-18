@@ -1,6 +1,7 @@
 import createError from 'http-errors';
 import express from 'express';
 import hbs from 'express-hbs';
+import helmet from "helmet";
 import path from 'path';
 import { fileURLToPath } from 'url';
 import cookieParser from 'cookie-parser';
@@ -18,6 +19,9 @@ const relative = p => path.join(__dirname, p);
 // view engine setup
 const viewsDir = relative('views');
 app.use(express.static(relative('public')));
+
+// Use express-helmet to enhance protection against attacks
+app.use(helmet());
 
 // Hook in express-hbs and tell it where known directories reside
 app.engine('hbs', hbs.express4({
