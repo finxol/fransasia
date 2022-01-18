@@ -23,6 +23,9 @@ app.use(express.static(relative('public')));
 // Use express-helmet to enhance protection against attacks
 app.use(helmet());
 
+// Remove express header
+app.disable('x-powered-by');
+
 // Hook in express-hbs and tell it where known directories reside
 app.engine('hbs', hbs.express4({
     layoutsDir: relative('views/layout'),
