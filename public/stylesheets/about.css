@@ -59,7 +59,7 @@ body header nav {
   background-color: #ffffff;
   transition: 0.5s ease;
 }
-@media screen and (max-width: 930px) {
+@media screen and (max-width: 1000px) {
   body header nav {
     position: absolute;
     left: 105vw;
@@ -140,7 +140,7 @@ body div#body h1 {
   color: #ffffff;
   text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
 }
-@media screen and (max-width: 930px) {
+@media screen and (max-width: 1000px) {
   body div#body h1 {
     padding-top: 1rem;
     line-height: 10rem;
@@ -280,7 +280,7 @@ body footer {
   border-top: 1px solid rgba(43, 14, 0, 0.19);
   color: rgba(22, 7, 0, 0.7);
 }
-@media screen and (max-width: 930px) {
+@media screen and (max-width: 1000px) {
   body footer {
     padding: 0 1rem 2rem;
   }
@@ -320,7 +320,8 @@ body div#body article section ul li {
   margin-bottom: 0.5rem;
 }
 body div#body p {
-  margin: 3rem 15rem 1rem;
+  margin: 3rem auto 1rem;
+  width: 70%;
   text-align: justify;
   column-count: 3;
   column-gap: 2rem;

@@ -60,7 +60,7 @@ body header nav {
   background-color: #ffffff;
   transition: 0.5s ease;
 }
-@media screen and (max-width: 930px) {
+@media screen and (max-width: 1000px) {
   body header nav {
     position: absolute;
     left: 105vw;
@@ -141,7 +141,7 @@ body div#body h1 {
   color: #ffffff;
   text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
 }
-@media screen and (max-width: 930px) {
+@media screen and (max-width: 1000px) {
   body div#body h1 {
     padding-top: 1rem;
     line-height: 10rem;
@@ -281,7 +281,7 @@ body footer {
   border-top: 1px solid rgba(43, 14, 0, 0.19);
   color: rgba(22, 7, 0, 0.7);
 }
-@media screen and (max-width: 930px) {
+@media screen and (max-width: 1000px) {
   body footer {
     padding: 0 1rem 2rem;
   }
