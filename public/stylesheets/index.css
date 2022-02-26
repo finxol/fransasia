@@ -129,6 +129,26 @@ body header button#show-menu.change div.bar3 {
 body div#body {
   margin: 0;
   min-height: calc(100vh - 5rem - 8rem);
+}
+body div#body h1 {
+  margin: 0;
+  height: calc(50vh - 2.5rem);
+  line-height: calc(50vh - 2.5rem);
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-size: 3rem;
+  color: #ffffff;
+  text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
+}
+@media screen and (max-width: 930px) {
+  body div#body h1 {
+    padding-top: 1rem;
+    line-height: 10rem;
+    font-size: 2.5rem;
+  }
+}
+body div#body h2 {
   text-align: center;
 }
 body .separator {
@@ -271,27 +291,15 @@ body footer a {
   text-decoration: none;
 }
 
+div#body {
+  text-align: center;
+}
 div#body div#welcome {
   height: calc(100vh - 5rem);
 }
 div#body div#welcome h1 {
-  margin: 0;
-  height: calc(50vh - (5rem/2));
-  line-height: calc(50vh - (5rem/2));
   background-image: url("/images/macau-wallpaper.jpg");
   background-image: image-set("/images/macau-wallpaper.webp" type("image/webp"), "/images/macau-wallpaper.jpg" type("image/jpg"));
-  background-repeat: no-repeat;
-  background-size: cover;
-  font-size: 3rem;
-  color: #ffffff;
-  text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
-}
-@media screen and (max-width: 930px) {
-  div#body div#welcome h1 {
-    padding-top: 1rem;
-    line-height: 10rem;
-    font-size: 2.5rem;
-  }
 }
 div#body div#welcome h1::after {
   content: "better image?";
@@ -309,7 +317,7 @@ div#body div#welcome article {
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  height: calc((100vh - 5rem) /2);
+  height: calc((100vh - 5rem) / 2);
 }
 div#body div#welcome article section {
   width: 45%;

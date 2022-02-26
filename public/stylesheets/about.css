@@ -128,6 +128,26 @@ body header button#show-menu.change div.bar3 {
 body div#body {
   margin: 0;
   min-height: calc(100vh - 5rem - 8rem);
+}
+body div#body h1 {
+  margin: 0;
+  height: calc(50vh - 2.5rem);
+  line-height: calc(50vh - 2.5rem);
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-size: 3rem;
+  color: #ffffff;
+  text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
+}
+@media screen and (max-width: 930px) {
+  body div#body h1 {
+    padding-top: 1rem;
+    line-height: 10rem;
+    font-size: 2.5rem;
+  }
+}
+body div#body h2 {
   text-align: center;
 }
 body .separator {
@@ -270,23 +290,46 @@ body footer a {
   text-decoration: none;
 }
 
-div#body h2 {
+body div#body h1 {
+  color: #160700;
+  text-shadow: none;
+  background-image: url("/images/orange-lines.svg");
+  background-size: 100% calc(50vh - 2.5rem);
+}
+body div#body h2 {
   padding-top: 2rem;
 }
-div#body article {
+body div#body article {
   margin: 3rem 4rem 1rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-div#body article section {
+body div#body article.one {
+  display: block;
+  margin: auto;
+  width: max-content;
+}
+body div#body article section {
   width: 47%;
 }
-div#body article section ul {
+body div#body article section ul {
   text-align: left;
 }
-div#body article section ul li {
+body div#body article section ul li {
   margin-bottom: 0.5rem;
+}
+body div#body p {
+  margin: 3rem 15rem 1rem;
+  text-align: justify;
+  column-count: 3;
+  column-gap: 2rem;
+}
+body div#body p:first-letter {
+  float: left;
+  font-size: 450%;
+  line-height: 0.65;
+  margin: 0.1em 0.1em 0 0;
 }
 
 /*# sourceMappingURL=about.css.map */

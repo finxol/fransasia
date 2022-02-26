@@ -1,27 +1,14 @@
 @import "style"
 
 div#body
+    text-align: center
+
     div#welcome
         height: calc(100vh - 5rem)
 
         h1
-            margin: 0
-            $height: calc(50vh - (5rem/2))
-            height: $height
-            line-height: $height
-
             background-image: url("/images/macau-wallpaper.jpg")
             background-image: image-set("/images/macau-wallpaper.webp" type("image/webp"), "/images/macau-wallpaper.jpg" type("image/jpg"))
-            background-repeat: no-repeat
-            background-size: cover
-            font-size: 3rem
-            color: #ffffff
-            text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px //text outline
-
-            @media screen and (max-width: 930px)
-                padding-top: 1rem
-                line-height: 10rem
-                font-size: 2.5rem
 
             &::after
                 content: "better image?"

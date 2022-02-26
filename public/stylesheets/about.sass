@@ -1,21 +1,45 @@
 @import "style"
 
 
-div#body
-    h2
-        padding-top: 2rem
+body
+    div#body
+        h1
+            color: $black
+            text-shadow: none
+            background-image: url("/images/orange-lines.svg")
+            background-size: 100% calc(50vh - (5rem/2))
 
-    article
-        margin: 3rem 4rem 1rem
-        display: flex
-        flex-direction: row
-        justify-content: space-between
+        h2
+            padding-top: 2rem
 
-        section
-            width: 47%
+        article
+            margin: 3rem 4rem 1rem
+            display: flex
+            flex-direction: row
+            justify-content: space-between
 
-            ul
-                text-align: left
+            &.one
+                display: block
+                margin: auto
+                width: max-content
 
-                li
-                    margin-bottom: .5rem
+            section
+                width: 47%
+
+                ul
+                    text-align: left
+
+                    li
+                        margin-bottom: .5rem
+
+        p
+            margin: 3rem 15rem 1rem
+            text-align: justify
+            column-count: 3
+            column-gap: 2rem
+
+            &:first-letter
+                float: left
+                font-size: 450%
+                line-height: 0.65
+                margin: 0.1em 0.1em 0 0
