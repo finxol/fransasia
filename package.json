@@ -6,9 +6,9 @@
     "scripts": {
         "serve": "NODE_ENV=production node bin/www.js",
         "dev": "DEBUG=fransasia:* node bin/www.js",
-        "start": "cd /srv/http/fransasia && NODE_ENV=production forever start -o out.log -e err.log bin/www.js",
-	"stop": "forever stop www/bin.js",
-	"restart": "npm stop && npm start"
+        "start": "NODE_ENV=production forever start -o out.log -e err.log bin/www.js",
+        "stop": "forever stop bin/www.js",
+        "restart": "npm stop && npm start"
     },
     "dependencies": {
         "cookie-parser": "~1.4.4",
