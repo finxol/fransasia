@@ -208,9 +208,9 @@ body form.contact {
 body form.contact.show {
   display: block;
   position: fixed;
-  top: 20vh;
+  top: 15vh;
   right: 10vw;
-  bottom: 20vh;
+  bottom: 15vh;
   left: 10vw;
 }
 body form.contact h2 {
@@ -238,6 +238,16 @@ body form.contact div section label {
   align-items: center;
   width: 100%;
   text-align: left;
+}
+body form.contact div section label[for=privacy] {
+  display: block;
+}
+body form.contact div section label[for=privacy] input {
+  width: auto;
+}
+body form.contact div section label[for=privacy] a {
+  color: inherit;
+  text-decoration: none;
 }
 body form.contact div section label > * {
   margin: 0 0.5rem;
